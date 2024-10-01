@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/home-section.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <!-- MENU OVERLAY -->
+        <div class="overlay overlay-slide-left" id="overlay">
+            <!-- MENU ITEMS -->
+            <nav>
+                <ul>
+                    <li id="nav-1" class="slide-out-1 center">
+                        <a href="#home1" class="center">Home</a>
+                    </li>
+                    <li id="nav-2" class="slide-out-2 center">
+                        <a href="#about1" class="center">About</a>
+                    </li>
+                    <li id="nav-3" class="slide-out-3 center">
+                        <a href="#skills1" class="center">Skills</a>
+                    </li>
+                    <li id="nav-4" class="slide-out-4 center">
+                        <a href="#projects1" class="center">Projects</a>
+                    </li>
+                    <li id="nav-5" class="slide-out-5 center">
+                        <a href="#contact1" class="center">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- HAMBURGER MENU -->
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="menu-bar1"></div>
+            <div class="menu-bar2"></div>
+            <div class="menu-bar3"></div>
+        </div>
+        <!-- SECTIONS -->
+        <section id="home1">
+            <div id="question-container">
+                <h1>DSA Questions</h1>
+                <div id="difficulty-selection">
+                    <button id="all-btn" class="difficulty-btn selected">All</button>
+                    <button id="easy-btn" class="difficulty-btn">Easy</button>
+                    <button id="medium-btn" class="difficulty-btn">Medium</button>
+                    <button id="hard-btn" class="difficulty-btn">Hard</button>
+                </div>
+                
+                <!-- Questions for each difficulty are predefined in the HTML -->
+                <ul id="question-list">
+                    <li class="question-item easy">Question 1 (Easy)</li>
+                    <li class="question-item easy">Question 2 (Easy)</li>
+                    <li class="question-item easy">Question 3 (Easy)</li>
+                    <li class="question-item easy">Question 4 (Easy)</li>
+                    <li class="question-item easy">Question 5 (Easy)</li>
+        
+                    <li class="question-item medium">Question 6 (Medium)</li>
+                    <li class="question-item medium">Question 7 (Medium)</li>
+                    <li class="question-item medium">Question 8 (Medium)</li>
+                    <li class="question-item medium">Question 9 (Medium)</li>
+                    <li class="question-item medium">Question 10 (Medium)</li>
+        
+                    <li class="question-item hard">Question 11 (Hard)</li>
+                    <li class="question-item hard">Question 12 (Hard)</li>
+                    <li class="question-item hard">Question 13 (Hard)</li>
+                    <li class="question-item hard">Question 14 (Hard)</li>
+                    <li class="question-item hard">Question 15 (Hard)</li>
+                </ul>
+            </div>
+        </section>
+        <section id="about1" >
+            <h1>Know More Who I am</h1>
+        </section>
+        <section id="skills1" >
+            <h1>Here's all the stuff I do</h1>
+        </section>
+        <section id="projects1" >
+            <h1>Here's stuff I made recently</h1>
+        </section>
+        <section id="contact1" >
+            <h1>Have me make stuff for you</h1>
+        </section>
+    </div>
+    <script src="javascript/home.js"></script>
+    <script src="javascript/home-section.js"></script>
+</body>
+
+</html>
