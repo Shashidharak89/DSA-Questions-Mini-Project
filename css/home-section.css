@@ -32,7 +32,7 @@
 }
 
 #question-list {
-    list-style-type: none;
+    /* list-style-type: none; */
     padding: 0;
     margin: 0;
 }
@@ -40,12 +40,14 @@
 .question-item {
     padding: 10px;
     margin-bottom: 5px;
-    background-color: #FFD700;
+    background-color: #001F3F;
+    color: #FFD700;
     border-radius: 5px;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
     display: none; /* Hidden by default */
+    text-align: left;
 }
 
 .show {
