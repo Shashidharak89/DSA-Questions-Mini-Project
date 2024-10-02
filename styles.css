@@ -1,13 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #000000;
     overflow: hidden; /* Prevent scrolling when popup is active */
 }
 .login-container {
+    display: none;
     background-color: white;
     padding: 20px;
     border-radius: 25px;

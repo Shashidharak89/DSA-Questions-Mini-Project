@@ -30,3 +30,16 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
     document.getElementById("backdrop").style.display = "none";
 }
+
+
+
+ // Ensure .load stays for at least 3 seconds
+ window.addEventListener('load', function() {
+    const loadDiv = document.querySelector('.container');
+    const conDiv = document.querySelector('.login-container');
+    
+    setTimeout(function() {
+        loadDiv.style.display = 'none';  // Hide the loading screen
+        conDiv.style.display = 'block';  // Show the main content
+    }, 1800); // 3000 milliseconds = 3 seconds
+});

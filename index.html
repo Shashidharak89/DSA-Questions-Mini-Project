@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/loading.css">
 </head>
+
 <body>
-
-<div class="login-container">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button onclick="login()" id="login">Login</button>
-
-    <div class="backdrop" id="backdrop"></div>
-    <div class="popup" id="popup">
-        <p id="popup-message"></p>
-        <button onclick="closePopup()" >Close</button>
+    <div class="container">
+        <div class="centered-div">
+            <div class="loader">
+                <span style="--i:1;">L</span>
+                <span style="--i:2;">o</span>
+                <span style="--i:3;">a</span>
+                <span style="--i:4;">d</span>
+                <span style="--i:5;">i</span>
+                <span style="--i:6;">n</span>
+                <span style="--i:7;">g</span>
+                <span style="--i:8;">.</span>
+                <span style="--i:9;">.</span>
+                <span style="--i:10;">.</span>
+            </div>
+        </div>
     </div>
-</div>
 
-<script src="script.js">
-   
-</script>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()" id="login">Login</button>
+
+        <div class="backdrop" id="backdrop"></div>
+        <div class="popup" id="popup">
+            <p id="popup-message"></p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js">
+
+    </script>
 
 </body>
+
 </html>
