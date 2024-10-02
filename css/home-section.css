@@ -6,8 +6,12 @@
     border-radius: 8px;
     text-align: center;
     margin-top: 30px;
-    height: 1000px;
+    height: 704px;
+    width: 80%;
     overflow: auto;
+}
+#question-container h1{
+    color:#800000 ;
 }
 
 #difficulty-selection {
@@ -25,12 +29,12 @@
 }
 
 .difficulty-btn:hover {
-    background-color: #ddd;
+    background-color: rgba(255, 217, 0, 0.636);
 }
 
 .selected {
-    background-color: #4caf50;
-    color: white;
+    background-color: rgb(255, 215, 0);
+    color: #800000;
 }
 
 #question-list {
@@ -50,10 +54,23 @@
     transition: opacity 0.5s ease, transform 0.5s ease;
     display: none; /* Hidden by default */
     text-align: left;
+    font-size: 20px;
 }
 
 .show {
     display: block;
     opacity: 1;
     transform: translateY(0);
+}
+#home1{
+    display: flex;
+    justify-content: center;
+}
+
+#question-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+.qhyp{
+    color: #FFD700;
+    text-decoration: dashed;
 }

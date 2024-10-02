@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../solution css/sum-of-2-digit.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Sum of 2 numbers</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//sum.java
+
+public class SumTwoDigits {
+    public static void main(String[] args) {
+        // Declare two variables for the digits
+        int num1 = 5; // Example first digit
+        int num2 = 7; // Example second digit
+
+        // Calculate the sum
+        int sum = num1 + num2;
+
+        // Display the result
+        System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
+    }
+}
+                    
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//sum.c
+
+#include <stdio.h>
+    int main() {
+        // Two variables to hold the digits
+        int num1 = 5;
+        int num2 = 7;
+    
+        // Calculating the sum
+        int sum = num1 + num2;
+    
+        // Output the result
+        printf("The sum of %d and %d is: %d\n", num1, num2, sum);
+    
+        return 0;
+    }
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#sum.py
+
+# Two variables to hold the digits
+num1 = 5
+num2 = 7
+
+# Calculating the sum
+sum = num1 + num2
+
+# Output the result
+print(f"The sum of {num1} and {num2} is: {sum}")
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+Test Case 1:
+Input: num1 = 5, num2 = 7
+Expected Output: 12
+Explanation: Adding 5 and 7 gives 12.
+
+Test Case 2:
+Input: num1 = 0, num2 = 0
+Expected Output: 0
+Explanation: Adding 0 and 0 gives 0.
+
+Test Case 3:
+Input: num1 = -5, num2 = 7
+Expected Output: 2
+Explanation: Adding -5 and 7 gives 2.
+
+Test Case 4:
+Input: num1 = 10, num2 = -3
+Expected Output: 7
+Explanation: Adding 10 and -3 gives 7.
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>

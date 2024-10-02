@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    padding: 20px;
+    color: #ffffff;
+}
+.code{
+    color: orange;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Centralize the buttons horizontally */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.language-selector button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFD700;
+    color: #800000;
+    transition: background-color 0.3s ease;
+}
+
+.language-selector button:hover {
+    background-color: #FFD700;
+}
+
+.code-container {
+    height: 500px;
+    overflow: auto;
+    padding: 20px;
+    background-color: #000000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    font-family: monospace;
+    text-align: left; /* Align the code to the left */
+    position: relative; /* For positioning the copy button */
+}
+
+/* Initially hide all code snippets */
+.code {
+    display: none;
+}
+
+/* Show the first code snippet (Java) by default */
+#java-code {
+    display: block;
+}
+
+.fade-in {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.copy-btn {
+    position: absolute;
+    right: 20px; /* Aligns to the right */
+    top: 20px; /* Aligns to the top */
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #800000;
+    color: #FFD700;
+    transition: background-color 0.3s ease;
+    z-index: 1; /* Ensures it's above other elements */
+}
+
+.copy-btn:hover {
+    background-color: #800000;
+}
+
+.icon {
+    margin-right: 5px; /* Space between icon and text */
+}
+.test-cases {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #000000;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left; /* Align test cases to the left */
+        }
