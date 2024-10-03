@@ -3,7 +3,8 @@
     "admin": "password123",
     "user1": "pass1",
     "user2": "pass2",
-    "shashi":"abcd1234"
+    "shashi":"abcd1234",
+    "prajwxl_gowda":"prajwal123"
 };
 
 function login() {

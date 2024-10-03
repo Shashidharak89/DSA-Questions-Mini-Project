@@ -1,0 +1,75 @@
+.contact-section {
+    background-color: rgba(255, 255, 255, 0); /* Transparent background */
+    color: #f0f0f0; /* Light grey text color suitable for black background */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 80px;
+}
+
+.contact-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contact-person {
+    flex: 1;
+    margin: 20px;
+    text-align: left;
+    max-width: 350px;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 12px;
+}
+
+.contact-person img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.contact-person p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.contact-person a {
+    color: #ffcc00; /* Yellow color for links */
+    text-decoration: none;
+}
+
+.contact-person a:hover {
+    text-decoration: underline;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #ffcc00; /* Yellow for social icons */
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #ff9900; /* Slightly darker yellow on hover */
+}
+.al{
+    display: flex;
+    justify-content: center;
+}

@@ -12,6 +12,9 @@
 }
 #question-container h1{
     color:#800000 ;
+    -webkit-text-stroke: 0.5px rgb(255, 215, 0); 
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
 }
 
 #difficulty-selection {
@@ -20,12 +23,14 @@
 
 .difficulty-btn {
     margin: 0 10px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f0f0f0;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    height: 50px;
+    width: 70px;
 }
 
 .difficulty-btn:hover {
@@ -46,9 +51,10 @@
 .question-item {
     padding: 10px;
     margin-bottom: 5px;
-    background-color: #001F3F;
+    background-color: transparent;
     color: #FFD700;
     border-radius: 5px;
+    border: 1px solid grey;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -70,3 +76,27 @@
 #question-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar */
 }
+@media (max-width:592px) {
+    #question-container h1{
+        font-size: 20px;
+    }
+    
+}
+@media (max-width:592px) {
+    #difficulty-selection button{
+        height: 45px;
+        width: 60px;
+        padding: 1px;
+    }
+
+}
+@media (max-width:480px) {
+    #difficulty-selection button{
+        height: 40px;
+        width: 50px;
+        margin: 2px;
+        padding: 0.5px;
+    }
+
+}
+

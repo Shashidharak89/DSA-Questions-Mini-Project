@@ -5,5 +5,5 @@ window.addEventListener('load', function() {
     setTimeout(function() {
         loadDiv.style.display = 'none';  // Hide the loading screen
         conDiv.style.display = 'block';  // Show the main content
-    }, 3000); // 3000 milliseconds = 3 seconds
+    }, 3); // 3000 milliseconds = 3 seconds
 });
