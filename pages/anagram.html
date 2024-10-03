@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../solution css/sum-of-2-digit.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Check the given two strings are anagram or not</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//anagram.java
+
+import java.util.HashMap;
+
+public class AnagramCheck {
+    public static boolean areAnagrams(String str1, String str2) {
+        // If lengths are not equal, they cannot be anagrams
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+
+        // Count occurrences of each character in both strings
+        HashMap<Character, Integer> countMap = new HashMap<>();
+
+        for (char c : str1.toCharArray()) {
+            countMap.put(c, countMap.getOrDefault(c, 0) + 1);
+        }
+
+        for (char c : str2.toCharArray()) {
+            if (countMap.containsKey(c)) {
+                countMap.put(c, countMap.get(c) - 1);
+                if (countMap.get(c) < 0) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        return true; // All counts should be zero
+    }
+
+    public static void main(String[] args) {
+        String str1 = "listen"; // Test case 1
+        String str2 = "silent"; // Test case 1
+
+        if (areAnagrams(str1, str2)) {
+            System.out.println(str1 + " and " + str2 + " are anagrams.");
+        } else {
+            System.out.println(str1 + " and " + str2 + " are not anagrams.");
+        }
+    }
+}
+
+                    
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//anagram.c
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdbool.h&gt;
+
+#define ALPHABET_SIZE 26
+
+bool are_anagrams(char* str1, char* str2) {
+    int count[ALPHABET_SIZE] = {0}; // Array to count occurrences of each letter
+
+    // If lengths are not equal, they cannot be anagrams
+    if (strlen(str1) != strlen(str2)) {
+        return false;
+    }
+
+    // Count occurrences of each character in both strings
+    for (int i = 0; str1[i] && str2[i]; i++) {
+        count[str1[i] - 'a']++;   // Increment count for str1
+        count[str2[i] - 'a']--;   // Decrement count for str2
+    }
+
+    // If all counts are zero, then they are anagrams
+    for (int i = 0; i &lt; ALPHABET_SIZE; i++) {
+        if (count[i] != 0) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+int main() {
+    char str1[] = "listen"; // Test case 1
+    char str2[] = "silent"; // Test case 1
+
+    if (are_anagrams(str1, str2)) {
+        printf("%s and %s are anagrams.\n", str1, str2);
+    } else {
+        printf("%s and %s are not anagrams.\n", str1, str2);
+    }
+
+    return 0;
+}
+
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#anagram.py
+
+def are_anagrams(str1, str2):
+    # If lengths are not equal, they cannot be anagrams
+    if len(str1) != len(str2):
+        return False
+
+    # Count occurrences of each character in both strings
+    count = {}
+    for char in str1:
+        count[char] = count.get(char, 0) + 1
+
+    for char in str2:
+        if char in count:
+            count[char] -= 1
+        else:
+            return False
+
+    # If all counts are zero, then they are anagrams
+    return all(value == 0 for value in count.values())
+
+# Test case 1
+str1 = "listen"
+str2 = "silent"
+
+if are_anagrams(str1, str2):
+    print(f"{str1} and {str2} are anagrams.")
+else:
+    print(f"{str1} and {str2} are not anagrams.")
+
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+Test Case 1: str1 = "triangle", str2 = "integral"
+
+Expected Output: "triangle and integral are anagrams."
+
+
+Test Case 2: str1 = "apple", str2 = "pale"
+                
+Expected Output: "apple and pale are not anagrams."
+
+
+Test Case 3: str1 = "evil", str2 = "vile"
+                
+Expected Output: "evil and vile are anagrams."
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>

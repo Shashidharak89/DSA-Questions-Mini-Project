@@ -16,7 +16,7 @@
 <body>
 
     <div class="container">
-        <h1>Sum of 2 numbers</h1>
+        <h1>Reverse a string</h1>
 
         <div class="language-selector">
             <button onclick="showCode('java-code')">Java</button>
@@ -30,19 +30,22 @@
                 <button class="copy-btn" onclick="copyCode('java-code', this)">
                     <i class="fas fa-copy icon"></i>Copy Code</button>
                 <pre>
-//sum.java
+//reverse.java
 
-public class SumTwoDigits {
+import java.util.Scanner;
+
+public class ReverseString {
+    public static String reverseString(String str) {
+        StringBuilder reversed = new StringBuilder(str);
+        return reversed.reverse().toString();
+    }
+
     public static void main(String[] args) {
-        // Declare two variables for the digits
-        int num1 = 5; // Example first digit
-        int num2 = 7; // Example second digit
-
-        // Calculate the sum
-        int sum = num1 + num2;
-
-        // Display the result
-        System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        System.out.println("Reversed string: " + reverseString(str));
+        sc.close();
     }
 }
                     
@@ -54,20 +57,26 @@ public class SumTwoDigits {
                 <button class="copy-btn" onclick="copyCode('c-code', this)">
                     <i class="fas fa-copy icon"></i>Copy Code</button>
                 <pre>
-//sum.c
+//reverse.c
 
-#include <stdio.h>
+#include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    
+    void reverseString(char str[]) {
+        int n = strlen(str);
+        for (int i = 0; i &lt; n / 2; i++) {
+            char temp = str[i];
+            str[i] = str[n - i - 1];
+            str[n - i - 1] = temp;
+        }
+    }
+    
     int main() {
-        // Two variables to hold the digits
-        int num1 = 5;
-        int num2 = 7;
-    
-        // Calculating the sum
-        int sum = num1 + num2;
-    
-        // Output the result
-        printf("The sum of %d and %d is: %d\n", num1, num2, sum);
-    
+        char str[100];
+        printf("Enter a string: ");
+        gets(str);
+        reverseString(str);
+        printf("Reversed string: %s\n", str);
         return 0;
     }
     
@@ -79,17 +88,22 @@ public class SumTwoDigits {
                 <button class="copy-btn" onclick="copyCode('python-code', this)">
                     <i class="fas fa-copy icon"></i>Copy Code</button>
                 <pre>
-#sum.py
+#reverse.py
 
-# Two variables to hold the digits
-num1 = 5
-num2 = 7
+def reverse_string(s):
+    """Reverses the input string."""
+    return s[::-1]
 
-# Calculating the sum
-sum = num1 + num2
+# Get user input
+user_input = input("Enter a string: ")
 
-# Output the result
-print(f"The sum of {num1} and {num2} is: {sum}")
+# Reverse the input string
+reversed_string = reverse_string(user_input)
+
+# Display the results
+print("Original String:", user_input)
+print("Reversed String:", reversed_string)
+
 
                 </pre>
             </div>
@@ -97,25 +111,18 @@ print(f"The sum of {num1} and {num2} is: {sum}")
         <div class="test-cases" id="test-cases">
             <h3>Test Cases</h3>
             <pre>
-Test Case 1:
-Input: num1 = 5, num2 = 7
-Expected Output: 12
-Explanation: Adding 5 and 7 gives 12.
+Test Cases:
 
-Test Case 2:
-Input: num1 = 0, num2 = 0
-Expected Output: 0
-Explanation: Adding 0 and 0 gives 0.
+1. Input: hello → Output: olleh
 
-Test Case 3:
-Input: num1 = -5, num2 = 7
-Expected Output: 2
-Explanation: Adding -5 and 7 gives 2.
 
-Test Case 4:
-Input: num1 = 10, num2 = -3
-Expected Output: 7
-Explanation: Adding 10 and -3 gives 7.
+2. Input: 12345 → Output: 54321
+
+
+3. Input: abcdef → Output: fedcba
+
+
+4. Input: racecar → Output: racecar (Palindrome)
             <pre>
             
         </div>

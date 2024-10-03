@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../solution css/sum-of-2-digit.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Check whether the given number is palindrome or not</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//palindrome.java
+
+import java.util.Scanner;
+
+public class PalindromeCheck {
+    public static boolean isPalindrome(int num) {
+        int original = num;
+        int reversed = 0;
+
+        while (num > 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        return original == reversed;
+    }
+
+    public static void main(String[] args) {
+        int testNumber = 12321; // Test case
+        if (isPalindrome(testNumber)) {
+            System.out.println(testNumber + " is a palindrome.");
+        } else {
+            System.out.println(testNumber + " is not a palindrome.");
+        }
+    }
+}
+
+                    
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//palindrome.c
+
+#include &lt;stdio.h&gt;
+#include <stdio.h>
+
+int is_palindrome(int num) {
+    int original = num;
+    int reversed = 0;
+    
+    while (num > 0) {
+        int digit = num % 10;
+        reversed = reversed * 10 + digit;
+        num /= 10;
+    }
+    
+    return original == reversed;
+}
+
+int main() {
+    int test_number = 12321; // Test case
+    if (is_palindrome(test_number)) {
+        printf("%d is a palindrome.\n", test_number);
+    } else {
+        printf("%d is not a palindrome.\n", test_number);
+    }
+    
+    return 0;
+}
+    
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#palindrome.py
+
+def is_palindrome(num):
+    original = num
+    reversed_num = 0
+    
+    while num > 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digit
+        num //= 10
+        
+    return original == reversed_num
+
+# Test case
+test_number = 12321
+if is_palindrome(test_number):
+    print(f"{test_number} is a palindrome.")
+else:
+    print(f"{test_number} is not a palindrome.")
+
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+Test Case 1: Palindrome Number
+Input: 12321
+Explanation:
+The number 12321 reads the same backward as forward.
+When reversed, it remains 12321.
+Expected Output: "12321 is a palindrome."
+
+Test Case 2: Non-Palindrome Number
+Input: 12345
+Explanation:
+The number 12345 does not read the same backward; its reverse is 54321.
+Since 12345 is not equal to 54321, it is not a palindrome.
+Expected Output: "12345 is not a palindrome."
+
+Test Case 3: Single-Digit Number
+Input: 7
+Explanation:
+Any single-digit number is considered a palindrome because it reads the same in either direction.
+The number 7 remains 7 when reversed.
+Expected Output: "7 is a palindrome."
+
+Test Case 4: Negative Number
+Input: -121
+Explanation:
+The number -121 is not typically considered a palindrome because the negative sign makes it asymmetrical.
+Reversed, it becomes 121-, which is not the same as -121.
+Expected Output: "-121 is not a palindrome."
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>
