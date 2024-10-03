@@ -70,7 +70,3 @@
 #question-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar */
 }
-.qhyp{
-    color: #FFD700;
-    text-decoration: dashed;
-}
