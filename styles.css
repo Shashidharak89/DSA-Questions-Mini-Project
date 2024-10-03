@@ -96,3 +96,9 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.5); /* Dark background */
     z-index: 900; /* Below the popup */
 }
+@media (max-width:600px) {
+    .login-container {
+        width: 75%;
+    }
+    
+}
