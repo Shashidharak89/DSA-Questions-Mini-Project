@@ -65,7 +65,7 @@ a:visited {
 nav ul {
   height: 100vh;
   height: 100svh;
-  list-style: none;
+  list-style:circle;
 }
 
 nav ul li {
