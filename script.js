@@ -42,6 +42,6 @@ function closePopup() {
     setTimeout(function() {
         loadDiv.style.display = 'none';  // Hide the loading screen
         conDiv.style.display = 'block';  // Show the main content
-    }, 1800); // 3000 milliseconds = 3 seconds
+    }, 1); // 3000 milliseconds = 3 seconds
 });
 
