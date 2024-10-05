@@ -27,6 +27,8 @@ body {
     border: 2px solid #ff2770;
     box-shadow: 0 0 25px #ff2770;
     overflow: hidden;
+    display: none;
+    transition: 0.5s;
 }
 
 .login-container .form-box {
@@ -168,6 +170,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    transition: 0.5s;
 
 }
 
@@ -198,7 +201,23 @@ body {
     transform: rotate(10deg) skewY(40deg);
     transform-origin: bottom right;
 }
+@media (max-width:750px) {
+    .login-container {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 
+    .info-content h2{
+        font-size: 25px;
+        transition: 0.5s;
+    }
+    .info-content p {
+        font-size: 10px;
+        transition: 0.5s;
+    }
+    
+
+}
 @media (max-width:600px) {
     .login-container {
         margin-left: 5%;
@@ -208,6 +227,7 @@ body {
     .info-content {
         display: none;
     }
+    
 
 
 }
