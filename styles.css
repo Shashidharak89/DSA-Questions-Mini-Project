@@ -229,10 +229,22 @@ body {
     .info-content {
         display: none;
     }
+    .form-box{
+        margin-left: 80px;
+        transition: 1s;
+    }
+    .cls-p{
+        font-size: 14px;
+        transition: 1s;
+    }
 }
 @media (max-width:500px) {
     .form-box{
         margin-left: 50px;
+        transition: 1s;
+    }
+    .cls-p{
+        font-size: 12px;
         transition: 1s;
     }
 
@@ -242,11 +254,15 @@ body {
         margin-left: 30px;
         transition: 1s;
     }
+    .cls-p{
+        font-size: 10px;
+        transition: 1s;
+    }
 
 }
 @media (max-width:300px) {
     .form-box{
-        margin-left: 10px;
+        margin-left: 0px;
         transition: 1s;
     }
 
