@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900");
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +21,7 @@ body {
 
 
 .login-container {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:"Montserrat",sans-serif ;
     position: relative;
     color: #fff;
     width: 750px;
@@ -234,7 +235,7 @@ body {
         transition: 1s;
     }
     .cls-p{
-        font-size: 14px;
+        font-size: 13px;
         transition: 1s;
     }
 }
