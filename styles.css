@@ -235,9 +235,17 @@ body {
         transition: 1s;
     }
     .cls-p{
+        font-size: 14px;
+        transition: 1s;
+    }
+}
+@media (max-width:550px) {
+   
+    .cls-p{
         font-size: 13px;
         transition: 1s;
     }
+
 }
 @media (max-width:500px) {
     .form-box{

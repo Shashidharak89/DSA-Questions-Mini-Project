@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900");
 #question-container {
     background-color: transparent;
     border: 1px solid black;
@@ -13,7 +14,7 @@
 #question-container h1{
     color:#800000 ;
     -webkit-text-stroke: 0.5px rgb(255, 215, 0); 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:"Montserrat",sans-serif ;
     margin-bottom: 10px;
 }
 
@@ -90,6 +91,13 @@
     }
 
 }
+@media (max-width:550px) {
+    #question-list li{
+      font-size: 12px;
+    }
+    
+    
+  }
 @media (max-width:480px) {
     #difficulty-selection button{
         height: 40px;
