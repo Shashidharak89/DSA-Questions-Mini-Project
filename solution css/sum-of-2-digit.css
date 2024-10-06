@@ -4,7 +4,8 @@ body {
     padding: 20px;
     color: #ffffff;
 }
-.code{
+
+.code {
     color: orange;
 }
 
@@ -44,8 +45,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     font-family: monospace;
-    text-align: left; /* Align the code to the left */
-    position: relative; /* For positioning the copy button */
+    text-align: left;
+    /* Align the code to the left */
+    position: relative;
+    /* For positioning the copy button */
 }
 
 /* Initially hide all code snippets */
@@ -65,14 +68,21 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .copy-btn {
     position: absolute;
-    right: 20px; /* Aligns to the right */
-    top: 20px; /* Aligns to the top */
+    right: 20px;
+    /* Aligns to the right */
+    top: 20px;
+    /* Aligns to the top */
     padding: 5px 10px;
     cursor: pointer;
     border: none;
@@ -80,7 +90,8 @@ body {
     background-color: #800000;
     color: #FFD700;
     transition: background-color 0.3s ease;
-    z-index: 1; /* Ensures it's above other elements */
+    z-index: 1;
+    /* Ensures it's above other elements */
 }
 
 .copy-btn:hover {
@@ -88,14 +99,17 @@ body {
 }
 
 .icon {
-    margin-right: 5px; /* Space between icon and text */
+    margin-right: 5px;
+    /* Space between icon and text */
 }
+
 .test-cases {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #000000;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: left; /* Align test cases to the left */
-            overflow: auto;
-        }
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #000000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    /* Align test cases to the left */
+    overflow: auto;
+}

@@ -217,6 +217,7 @@ body {
         transition: 0.5s;
     }
     
+    
 
 }
 @media (max-width:600px) {
@@ -228,11 +229,28 @@ body {
     .info-content {
         display: none;
     }
-    
-
+}
+@media (max-width:500px) {
+    .form-box{
+        margin-left: 50px;
+        transition: 1s;
+    }
 
 }
+@media (max-width:400px) {
+    .form-box{
+        margin-left: 30px;
+        transition: 1s;
+    }
 
+}
+@media (max-width:300px) {
+    .form-box{
+        margin-left: 10px;
+        transition: 1s;
+    }
+
+}
 
 
 
