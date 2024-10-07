@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+    <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Find Duplicates in an array</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//duplicates.java
+
+
+public class FindDuplicates {
+    public static void findDuplicates(int[] arr) {
+        System.out.print("Duplicates: ");
+        for (int i = 0; i &lt; arr.length; i++) {
+            for (int j = i + 1; j &lt; arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.print(arr[i] + " ");
+                    break; // break inner loop to avoid multiple prints for the same duplicate
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 2, 5, 6, 3, 7};
+        findDuplicates(arr);
+    }
+}
+
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//duplicates.c
+
+#include &lt;stdio.h&gt;
+
+    void findDuplicates(int arr[], int size) {
+        printf("Duplicates: ");
+        for (int i = 0; i &lt; size; i++) {
+            for (int j = i + 1; j &lt; size; j++) {
+                if (arr[i] == arr[j]) {
+                    printf("%d ", arr[i]);
+                    break;  // break inner loop to avoid multiple prints for the same duplicate
+                }
+            }
+        }
+    }
+    
+    int main() {
+        int arr[] = {1, 2, 3, 4, 2, 5, 6, 3, 7};
+        int size = sizeof(arr) / sizeof(arr[0]);
+    
+        findDuplicates(arr, size);
+    
+        return 0;
+    }
+        
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#duplicates.py
+
+def find_duplicates(arr):
+    duplicates = []
+    seen = set()
+
+    for num in arr:
+        if num in seen:
+            duplicates.append(num)
+        else:
+            seen.add(num)
+
+    return duplicates
+
+# Example usage
+arr = [1, 2, 3, 4, 2, 5, 6, 3, 7]
+print("Duplicates:", find_duplicates(arr))
+
+
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+
+### Test Case 1:
+- **Input:**
+  - Array: `{1, 2, 3, 4, 2, 5, 6, 3, 7}`
+  - Size: `9`
+- **Expected Output:**
+  - `Duplicates: 2 3`
+
+### Test Case 2:
+- **Input:**
+  - Array: `{10, 20, 30, 40, 50, 60}`
+  - Size: `6`
+- **Expected Output:**
+  - `Duplicates: `  
+  (No duplicates)
+
+### Test Case 3:
+- **Input:**
+  - Array: `{5, 5, 5, 5, 5}`
+  - Size: `5`
+- **Expected Output:**
+  - `Duplicates: 5`
+
+### Test Case 4:
+- **Input:**
+  - Array: `{100, 200, 100, 300, 400, 300, 200}`
+  - Size: `7`
+- **Expected Output:**
+  - `Duplicates: 100 300 200`
+
+
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+
+    </script>
+
+</body>
+
+</html>
