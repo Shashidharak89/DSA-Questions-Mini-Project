@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Quick sort</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//quick.java
+
+public class QuickSort {
+
+    // Function to perform quicksort
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low &lt; high) {
+            // Find pivot element such that
+            // element smaller than pivot are on the left of pivot
+            // elements greater than pivot are on the right of pivot
+            int pivotIndex = partition(arr, low, high);
+            
+            // Recursively sort elements before and after partition
+            quickSort(arr, low, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, high);
+        }
+    }
+
+    // Function to find the partition position
+    public static int partition(int[] arr, int low, int high) {
+        // Choosing the rightmost element as the pivot
+        int pivot = arr[high];
+        int i = (low - 1); // Index of the smaller element
+
+        for (int j = low; j &lt; high; j++) {
+            // If the current element is smaller than or equal to the pivot
+            if (arr[j] &lt;= pivot) {
+                i++; // Increment index of smaller element
+                swap(arr, i, j);
+            }
+        }
+
+        // Swap the pivot element with the element at index (i + 1)
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+
+    // Helper function to swap two elements in the array
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // Main method to test quick sort
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6, 7};
+        
+        System.out.println("Given array is:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        quickSort(arr, 0, arr.length - 1);
+
+        System.out.println("\nSorted array is:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//quick.c
+
+#include &lt;stdio.h&gt;
+
+// Function to swap two elements in the array
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Function to find the partition position
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high]; // Choosing the rightmost element as the pivot
+    int i = (low - 1); // Index of the smaller element
+
+    for (int j = low; j &lt; high; j++) {
+        // If the current element is smaller than or equal to the pivot
+        if (arr[j] &lt;= pivot) {
+            i++; // Increment index of smaller element
+            swap(&arr[i], &arr[j]); // Swap arr[i] and arr[j]
+        }
+    }
+    swap(&arr[i + 1], &arr[high]); // Swap the pivot element with the element at (i + 1)
+    return i + 1; // Return the partitioning index
+}
+
+// Function to perform quicksort
+void quickSort(int arr[], int low, int high) {
+    if (low &lt; high) {
+        // Find pivot element such that
+        // elements smaller than pivot are on the left of pivot
+        // elements greater than pivot are on the right of pivot
+        int pivotIndex = partition(arr, low, high);
+        
+        // Recursively sort elements before and after partition
+        quickSort(arr, low, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, high);
+    }
+}
+    
+// Main function to test quick sort
+int main() {
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int arr_size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Given array is:\n");
+    for (int i = 0; i &lt; arr_size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    quickSort(arr, 0, arr_size - 1);
+
+    printf("\nSorted array is:\n");
+    for (int i = 0; i &lt; arr_size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+    
+    
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#quick.py
+
+def quick_sort(arr):
+    if len(arr) &lt;= 1:
+        return arr
+    else:
+        pivot = arr[len(arr) // 2]  # Choose the middle element as pivot
+        left = [x for x in arr if x &lt; pivot]  # Elements less than pivot
+        middle = [x for x in arr if x == pivot]  # Elements equal to pivot
+        right = [x for x in arr if x > pivot]  # Elements greater than pivot
+        return quick_sort(left) + middle + quick_sort(right)  # Recursive calls
+
+# Example usage
+arr = [12, 11, 13, 5, 6, 7]
+sorted_arr = quick_sort(arr)
+print("Sorted array:", sorted_arr)
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+### Test Case 1: Normal Case
+- **Input**: 
+  - `arr = {12, 11, 13, 5, 6, 7}`
+- **Expected Output**: 
+  - `arr = {5, 6, 7, 11, 12, 13}`
+
+---
+
+### Test Case 2: Already Sorted Array
+- **Input**: 
+  - `arr = {1, 2, 3, 4, 5}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 3: Reverse Sorted Array
+- **Input**: 
+  - `arr = {5, 4, 3, 2, 1}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 4: Array with Duplicate Elements
+- **Input**: 
+  - `arr = {4, 3, 3, 2, 1, 5, 5}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 3, 4, 5, 5}`
+
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Selection sort</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//selection.java
+
+public class SelectionSort {
+
+    // Function to perform selection sort
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        // Traverse through all array elements
+        for (int i = 0; i &lt; n - 1; i++) {
+            // Find the minimum element in the unsorted part of the array
+            int minIndex = i;
+            for (int j = i + 1; j &lt; n; j++) {
+                if (arr[j] &lt; arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap the found minimum element with the first unsorted element
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    // Main method to test the selection sort
+    public static void main(String[] args) {
+        int[] arr = {64, 25, 12, 22, 11};
+        selectionSort(arr);
+
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//selection.c
+
+#include &lt;stdio.h&gt;
+
+    // Function to perform selection sort
+    void selectionSort(int arr[], int n) {
+        int i, j, minIndex, temp;
+    
+        // Traverse through all array elements
+        for (i = 0; i &lt; n - 1; i++) {
+            // Find the minimum element in the unsorted part of the array
+            minIndex = i;
+            for (j = i + 1; j &lt; n; j++) {
+                if (arr[j] &lt; arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+    
+            // Swap the found minimum element with the first unsorted element
+            temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    
+    // Main method to test selection sort
+    int main() {
+        int arr[] = {64, 25, 12, 22, 11};
+        int n = sizeof(arr) / sizeof(arr[0]);
+    
+        selectionSort(arr, n);
+    
+        printf("Sorted array: \n");
+        for (int i = 0; i &lt; n; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+    
+        return 0;
+    }
+    
+    
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#selection.py
+
+def selection_sort(arr):
+    n = len(arr)
+    
+    for i in range(n):
+        # Assume the first element is the minimum
+        min_index = i
+        
+        # Check the rest of the array to find the smallest element
+        for j in range(i + 1, n):
+            if arr[j] &lt; arr[min_index]:
+                min_index = j
+        
+        # Swap the found minimum element with the first element of the unsorted part
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+# Example usage
+arr = [64, 25, 12, 22, 11]
+selection_sort(arr)
+print("Sorted array:", arr)
+
+
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+### Test Case 1: Normal Case
+- **Input**: 
+  - `arr = {64, 25, 12, 22, 11}`
+- **Expected Output**: 
+  - `arr = {11, 12, 22, 25, 64}`
+
+---
+
+### Test Case 2: Already Sorted Array
+- **Input**: 
+  - `arr = {1, 2, 3, 4, 5}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 3: Reverse Sorted Array
+- **Input**: 
+  - `arr = {5, 4, 3, 2, 1}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 4: Array with Duplicate Elements
+- **Input**: 
+  - `arr = {3, 3, 2, 1, 2}`
+- **Expected Output**: 
+  - `arr = {1, 2, 2, 3, 3}`
+                
+
+
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>

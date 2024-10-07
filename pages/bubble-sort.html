@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Bubble sort</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//bubble.java
+
+public class BubbleSort {
+
+    // Function to perform bubble sort
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+
+        // Traverse through all elements in the array
+        for (int i = 0; i &lt; n - 1; i++) {
+            swapped = false;
+
+            // Last i elements are already sorted
+            for (int j = 0; j &lt; n - i - 1; j++) {
+                // Swap if the element is greater than the next element
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+
+            // If no elements were swapped, the array is already sorted
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
+    // Main method to test bubble sort
+    public static void main(String[] args) {
+        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        bubbleSort(arr);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//bubble.c
+
+#include &lt;stdio.h&gt;
+
+// Function to perform bubble sort
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    int swapped;
+
+    // Traverse through all elements in the array
+    for (i = 0; i &lt; n - 1; i++) {
+        swapped = 0;
+
+        // Last i elements are already sorted
+        for (j = 0; j &lt; n - i - 1; j++) {
+            // Swap if the element is greater than the next element
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = 1;
+            }
+        }
+
+        // If no two elements were swapped in the inner loop, the array is already sorted
+        if (!swapped) {
+            break;
+        }
+    }
+}
+
+// Main function to test bubble sort
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    bubbleSort(arr, n);
+
+    printf("Sorted array: \n");
+    for (int i = 0; i &lt; n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+    
+    
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#bubble.py
+
+def bubble_sort(arr):
+    n = len(arr)
+    
+    # Traverse through all elements in the array
+    for i in range(n):
+        swapped = False
+        
+        # Last i elements are already sorted, so we don't need to check them
+        for j in range(0, n - i - 1):
+            
+            # Swap if the element found is greater than the next element
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        
+        # If no two elements were swapped in the inner loop, the array is already sorted
+        if not swapped:
+            break
+
+# Example usage
+arr = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(arr)
+print("Sorted array:", arr)
+
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+
+### Test Case 1: Normal Case
+- **Input**: 
+  - `arr = {64, 34, 25, 12, 22, 11, 90}`
+- **Expected Output**: 
+  - `arr = {11, 12, 22, 25, 34, 64, 90}`
+
+---
+
+### Test Case 2: Already Sorted Array
+- **Input**: 
+  - `arr = {1, 2, 3, 4, 5}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 3: Reverse Sorted Array
+- **Input**: 
+  - `arr = {5, 4, 3, 2, 1}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 4: Array with Duplicates
+- **Input**: 
+  - `arr = {3, 3, 2, 1, 2}`
+- **Expected Output**: 
+  - `arr = {1, 2, 2, 3, 3}`
+                
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>

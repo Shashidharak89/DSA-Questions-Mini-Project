@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Merge sort</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//merge-sort.java
+
+public class MergeSort {
+
+    // Function to merge two subarrays of arr[]
+    public static void merge(int[] arr, int left, int mid, int right) {
+        // Find sizes of two subarrays to be merged
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+
+        // Create temporary arrays
+        int[] leftArr = new int[n1];
+        int[] rightArr = new int[n2];
+
+        // Copy data to temporary arrays
+        for (int i = 0; i &lt; n1; i++)
+            leftArr[i] = arr[left + i];
+        for (int j = 0; j &lt; n2; j++)
+            rightArr[j] = arr[mid + 1 + j];
+
+        // Merge the temporary arrays back into arr[left..right]
+        int i = 0, j = 0;
+        int k = left;
+
+        while (i &lt; n1 && j &lt; n2) {
+            if (leftArr[i] &lt;= rightArr[j]) {
+                arr[k] = leftArr[i];
+                i++;
+            } else {
+                arr[k] = rightArr[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements of leftArr[], if any
+        while (i &lt; n1) {
+            arr[k] = leftArr[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements of rightArr[], if any
+        while (j &lt; n2) {
+            arr[k] = rightArr[j];
+            j++;
+            k++;
+        }
+    }
+
+    // Function to perform merge sort
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left &lt; right) {
+            // Find the middle point
+            int mid = left + (right - left) / 2;
+
+            // Recursively sort first and second halves
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+
+            // Merge the sorted halves
+            merge(arr, left, mid, right);
+        }
+    }
+
+    // Main method to test merge sort
+    public static void main(String[] args) {
+        int[] arr = {12, 11, 13, 5, 6, 7};
+        
+        System.out.println("Given array is:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println("\nSorted array is:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+}
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//merge-sort.c
+
+#include &lt;stdio.h&gt;
+
+    // Function to merge two subarrays of arr[]
+    void merge(int arr[], int left, int mid, int right) {
+        int n1 = mid - left + 1;
+        int n2 = right - mid;
+    
+        // Create temporary arrays
+        int leftArr[n1], rightArr[n2];
+    
+        // Copy data to temporary arrays leftArr[] and rightArr[]
+        for (int i = 0; i &lt; n1; i++)
+            leftArr[i] = arr[left + i];
+        for (int j = 0; j &lt; n2; j++)
+            rightArr[j] = arr[mid + 1 + j];
+    
+        // Merge the temporary arrays back into arr[left..right]
+        int i = 0, j = 0, k = left;
+        while (i &lt; n1 && j &lt; n2) {
+            if (leftArr[i] &lt;= rightArr[j]) {
+                arr[k] = leftArr[i];
+                i++;
+            } else {
+                arr[k] = rightArr[j];
+                j++;
+            }
+            k++;
+        }
+    
+        // Copy the remaining elements of leftArr[], if any
+        while (i &lt; n1) {
+            arr[k] = leftArr[i];
+            i++;
+            k++;
+        }
+    
+        // Copy the remaining elements of rightArr[], if any
+        while (j &lt; n2) {
+            arr[k] = rightArr[j];
+            j++;
+            k++;
+        }
+    }
+    
+    // Function to perform merge sort
+    void mergeSort(int arr[], int left, int right) {
+        if (left &lt; right) {
+            // Find the middle point
+            int mid = left + (right - left) / 2;
+    
+            // Recursively sort first and second halves
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+    
+            // Merge the sorted halves
+            merge(arr, left, mid, right);
+        }
+    }
+    
+    // Main function to test merge sort
+    int main() {
+        int arr[] = {12, 11, 13, 5, 6, 7};
+        int arr_size = sizeof(arr) / sizeof(arr[0]);
+    
+        printf("Given array is: \n");
+        for (int i = 0; i &lt; arr_size; i++)
+            printf("%d ", arr[i]);
+        printf("\n");
+    
+        mergeSort(arr, 0, arr_size - 1);
+    
+        printf("\nSorted array is: \n");
+        for (int i = 0; i &lt; arr_size; i++)
+            printf("%d ", arr[i]);
+        printf("\n");
+    
+        return 0;
+    }
+    
+    
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#merge-sort.py
+
+def merge_sort(arr):
+    if len(arr) > 1:
+        # Finding the mid of the array
+        mid = len(arr) // 2
+        
+        # Dividing the array elements into two halves
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+        
+        # Recursively sort both halves
+        merge_sort(left_half)
+        merge_sort(right_half)
+        
+        # Merge the sorted halves
+        i = j = k = 0
+        
+        # Copy data to temporary arrays left_half and right_half
+        while i &lt; len(left_half) and j &lt; len(right_half):
+            if left_half[i] &lt; right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+        
+        # Check if any element was left in the left_half
+        while i &lt; len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+        
+        # Check if any element was left in the right_half
+        while j &lt; len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+# Example usage
+arr = [12, 11, 13, 5, 6, 7]
+merge_sort(arr)
+print("Sorted array:", arr)
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+### Test Case 1: Normal Case
+- **Input**: 
+  - `arr = {12, 11, 13, 5, 6, 7}`
+- **Expected Output**: 
+  - `arr = {5, 6, 7, 11, 12, 13}`
+
+---
+
+### Test Case 2: Already Sorted Array
+- **Input**: 
+  - `arr = {1, 2, 3, 4, 5}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 3: Reverse Sorted Array
+- **Input**: 
+  - `arr = {5, 4, 3, 2, 1}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 4, 5}`
+
+---
+
+### Test Case 4: Array with Duplicate Elements
+- **Input**: 
+  - `arr = {4, 3, 3, 2, 1, 5, 5}`
+- **Expected Output**: 
+  - `arr = {1, 2, 3, 3, 4, 5, 5}`
+                
+
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>
