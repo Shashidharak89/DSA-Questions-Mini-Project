@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Product of Array except Self</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//product.java
+
+public class ProductExceptSelf {
+
+    public static int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+
+        // Calculate the products of elements to the left of each index
+        int leftProduct = 1;
+        for (int i = 0; i &lt; n; i++) {
+            result[i] = leftProduct;
+            leftProduct *= nums[i];
+        }
+
+        // Calculate the products of elements to the right of each index
+        int rightProduct = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] *= rightProduct;
+            rightProduct *= nums[i];
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4};
+        int[] result = productExceptSelf(nums);
+
+        System.out.print("Product of array except self: ");
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//product.c
+
+#include &lt;stdio.h&gt;
+
+void productExceptSelf(int nums[], int n, int result[]) {
+    // Initialize the result array with 1
+    for (int i = 0; i &lt; n; i++) {
+        result[i] = 1;
+    }
+
+    // Calculate the products of elements to the left of each index
+    int left_product = 1;
+    for (int i = 0; i &lt; n; i++) {
+        result[i] = left_product;
+        left_product *= nums[i];
+    }
+
+    // Calculate the products of elements to the right of each index
+    int right_product = 1;
+    for (int i = n - 1; i >= 0; i--) {
+        result[i] *= right_product;
+        right_product *= nums[i];
+    }
+}
+
+int main() {
+    int nums[] = {1, 2, 3, 4};
+    int n = sizeof(nums) / sizeof(nums[0]);
+    int result[n];
+
+    productExceptSelf(nums, n, result);
+
+    printf("Product of array except self: ");
+    for (int i = 0; i &lt; n; i++) {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#product.py
+
+def product_except_self(nums):
+    n = len(nums)
+    result = [1] * n
+
+    # Calculate the products of elements to the left of each index
+    left_product = 1
+    for i in range(n):
+        result[i] = left_product
+        left_product *= nums[i]
+
+    # Calculate the products of elements to the right of each index
+    right_product = 1
+    for i in range(n - 1, -1, -1):
+        result[i] *= right_product
+        right_product *= nums[i]
+
+    return result
+
+# Example usage
+nums = [1, 2, 3, 4]
+result = product_except_self(nums)
+print("Product of array except self:", result)
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+### Test Case 1: Normal Case
+- **Input**: 
+  - `nums = {1, 2, 3, 4}`
+- **Expected Output**: 
+  - `{24, 12, 8, 6}`
+
+---
+
+### Test Case 2: Contains Zero
+- **Input**: 
+  - `nums = {1, 0, 3, 4}`
+- **Expected Output**: 
+  - `{0, 12, 0, 0}`
+
+---
+
+### Test Case 3: All Elements are Zero
+- **Input**: 
+  - `nums = {0, 0, 0}`
+- **Expected Output**: 
+  - `{0, 0, 0}`
+
+---
+
+### Test Case 4: Negative Numbers
+- **Input**: 
+  - `nums = {-1, 2, -3, 4}`
+- **Expected Output**: 
+  - `{24, -12, 8, -6}`
+
+
+
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Toggle with Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMAh2k9I9O+f3xXfC+F5O6Q8+S7V6G1+6zUksS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../solution css/solution.css">
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Sum of 2 numbers</h1>
+
+        <div class="language-selector">
+            <button onclick="showCode('java-code')">Java</button>
+            <button onclick="showCode('c-code')">C</button>
+            <button onclick="showCode('python-code')">Python</button>
+        </div>
+
+        <div class="code-container">
+            <!-- Java Code -->
+            <div id="java-code" class="code">
+                <button class="copy-btn" onclick="copyCode('java-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//triplets.java
+import java.util.Arrays;
+
+public class TripletSum {
+
+    public static void findTriplets(int[] arr, int targetSum) {
+        Arrays.sort(arr); // Sort the array
+        int n = arr.length;
+        boolean foundTriplets = false;
+
+        for (int i = 0; i &lt; n - 2; i++) {
+            // Skip duplicate values for the first element
+            if (i > 0 && arr[i] == arr[i - 1]) {
+                continue;
+            }
+
+            int left = i + 1;
+            int right = n - 1;
+
+            while (left &lt; right) {
+                int currentSum = arr[i] + arr[left] + arr[right];
+
+                if (currentSum == targetSum) {
+                    System.out.println("(" + arr[i] + ", " + arr[left] + ", " + arr[right] + ")");
+                    foundTriplets = true;
+
+                    // Move both pointers and skip duplicates
+                    while (left &lt; right && arr[left] == arr[left + 1]) {
+                        left++;
+                    }
+                    while (left &lt; right && arr[right] == arr[right - 1]) {
+                        right--;
+                    }
+
+                    left++;
+                    right--;
+                } else if (currentSum &lt; targetSum) {
+                    left++; // Move left pointer to increase sum
+                } else {
+                    right--; // Move right pointer to decrease sum
+                }
+            }
+        }
+
+        if (!foundTriplets) {
+            System.out.println("No triplets found with the sum of " + targetSum);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, -2, -1, 0, 3};
+        int targetSum = 0;
+
+        System.out.println("Triplets with the sum of " + targetSum + ":");
+        findTriplets(arr, targetSum);
+    }
+}
+
+                 
+                </pre>
+            </div>
+
+            <!-- C Code -->
+            <div id="c-code" class="code">
+                <button class="copy-btn" onclick="copyCode('c-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+//triplets.c
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int compare(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
+
+void tripletSum(int arr[], int n, int targetSum) {
+    qsort(arr, n, sizeof(int), compare); // Sort the array
+    int foundTriplets = 0;
+
+    for (int i = 0; i &lt; n - 2; i++) {
+        // Skip duplicate values for the first element
+        if (i > 0 && arr[i] == arr[i - 1]) {
+            continue;
+        }
+
+        int left = i + 1;
+        int right = n - 1;
+
+        while (left &lt; right) {
+            int currentSum = arr[i] + arr[left] + arr[right];
+
+            if (currentSum == targetSum) {
+                printf("(%d, %d, %d)\n", arr[i], arr[left], arr[right]);
+                foundTriplets++;
+
+                // Move both pointers and skip duplicates
+                while (left &lt; right && arr[left] == arr[left + 1]) {
+                    left++;
+                }
+                while (left &lt; right && arr[right] == arr[right - 1]) {
+                    right--;
+                }
+
+                left++;
+                right--;
+            } else if (currentSum &lt; targetSum) {
+                left++; // Move left pointer to increase sum
+            } else {
+                right--; // Move right pointer to decrease sum
+            }
+        }
+    }
+
+    if (foundTriplets == 0) {
+        printf("No triplets found with the sum of %d\n", targetSum);
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, -2, -1, 0, 3};
+    int targetSum = 0;
+    int n = sizeof(arr) / sizeof(arr[0]); // Calculate number of elements
+
+    printf("Triplets with the sum of %d:\n", targetSum);
+    tripletSum(arr, n, targetSum);
+
+    return 0;
+}
+
+    
+    
+                </pre>
+            </div>
+
+            <!-- Python Code -->
+            <div id="python-code" class="code">
+                <button class="copy-btn" onclick="copyCode('python-code', this)">
+                    <i class="fas fa-copy icon"></i>Copy Code</button>
+                <pre>
+#triplets.py
+
+def tripletSum(arr, targetSum):
+    arr.sort()  # Sort the array
+    n = len(arr)
+    triplets = []
+
+    for i in range(n - 2):
+        # Skip duplicate values for the first element
+        if i > 0 and arr[i] == arr[i - 1]:
+            continue
+
+        left, right = i + 1, n - 1  # Set the two pointers
+
+        while left &lt; right:
+            current_sum = arr[i] + arr[left] + arr[right]
+            if current_sum == targetSum:
+                triplets.append((arr[i], arr[left], arr[right]))
+
+                # Move both pointers and skip duplicates
+                while left &lt; right and arr[left] == arr[left + 1]:
+                    left += 1
+                while left &lt; right and arr[right] == arr[right - 1]:
+                    right -= 1
+
+                left += 1
+                right -= 1
+            elif current_sum &lt; targetSum:
+                left += 1  # Move left pointer to increase sum
+            else:
+                right -= 1  # Move right pointer to decrease sum
+
+    return triplets
+
+# Example usage
+arr = [1, 2, -2, -1, 0, 3]
+targetSum = 0
+result = tripletSum(arr, targetSum)
+
+print("Triplets with the sum of", targetSum, ":")
+for triplet in result:
+    print(triplet)
+
+                </pre>
+            </div>
+        </div>
+        <div class="test-cases" id="test-cases">
+            <h3>Test Cases</h3>
+            <pre>
+### Test Case 1: Normal Case
+- **Input**: 
+  - `arr = {1, 2, -2, -1, 0, 3}`
+  - `targetSum = 0`
+- **Expected Output**: 
+  - (-2, -1, 3)
+  - (-2, 0, 2)
+  - (1, -1, 0)
+
+---
+
+### Test Case 2: No Valid Triplets
+- **Input**: 
+  - `arr = {1, 2, 3, 4}`
+  - `targetSum = 10`
+- **Expected Output**: 
+  - No triplets found with the sum of 10
+
+---
+
+### Test Case 3: Triplets with Negative Numbers
+- **Input**: 
+  - `arr = {-4, -1, -1, 0, 1, 2}`
+  - `targetSum = 0`
+- **Expected Output**: 
+  - (-1, -1, 2)
+  - (-4, 1, 2)
+
+---
+
+### Test Case 4: Duplicates in the Array
+- **Input**: 
+  - `arr = {1, 1, 1, 1, 2, 2}`
+  - `targetSum = 4`
+- **Expected Output**: 
+  - (1, 1, 2)
+
+
+
+            <pre>
+            
+        </div>
+
+    </div>
+
+    <script src="../javascript/code-page.js">
+        
+    </script>
+
+</body>
+
+</html>
