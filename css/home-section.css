@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,700,900");
+
 #question-container {
     background-color: transparent;
     border: 1px solid black;
@@ -11,11 +12,28 @@
     width: 80%;
     overflow: auto;
 }
-#question-container h1{
-    color:#800000 ;
-    -webkit-text-stroke: 0.5px rgb(255, 215, 0); 
-    font-family:"Montserrat",sans-serif ;
+
+#question-container h1 {
+    color: grey;
+    /* -webkit-text-stroke: 0.5px rgb(255, 215, 0);  */
+    font-family: "Montserrat", sans-serif;
     margin-bottom: 10px;
+    /* font-weight: 500; */
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: color 0.2s ease-in, font-size 1s ease-out; 
+}
+
+#question-container h1:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgb(255, 215, 0),
+        0 0 20px rgb(255, 215, 0),
+        0 0 40px rgb(255, 215, 0),
+        0 0 80px rgb(255, 215, 0),
+        0 0 120px rgb(255, 215, 0);
+        transition: color 0.5s ease-out, font-size 2s ease-in;
 }
 
 #difficulty-selection {
@@ -59,7 +77,8 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     text-align: left;
     font-size: 20px;
 }
@@ -69,37 +88,43 @@
     opacity: 1;
     transform: translateY(0);
 }
-#home1{
+
+#home1 {
     display: flex;
     justify-content: center;
 }
 
 #question-container::-webkit-scrollbar {
-    display: none; /* Hide scrollbar */
+    display: none;
+    /* Hide scrollbar */
 }
+
 @media (max-width:592px) {
-    #question-container h1{
+    #question-container h1 {
         font-size: 20px;
     }
-    
+
 }
+
 @media (max-width:592px) {
-    #difficulty-selection button{
+    #difficulty-selection button {
         height: 45px;
         width: 60px;
         padding: 1px;
     }
 
 }
+
 @media (max-width:550px) {
-    #question-list li{
-      font-size: 12px;
+    #question-list li {
+        font-size: 12px;
     }
-    
-    
-  }
+
+
+}
+
 @media (max-width:480px) {
-    #difficulty-selection button{
+    #difficulty-selection button {
         height: 40px;
         width: 50px;
         margin: 2px;
@@ -107,4 +132,3 @@
     }
 
 }
-
