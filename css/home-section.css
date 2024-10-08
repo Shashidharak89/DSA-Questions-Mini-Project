@@ -23,17 +23,20 @@
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
-    transition: color 0.2s ease-in, font-size 1s ease-out; 
+    transition: color 0.5s ease-in, font-size 2s ease, letter-spacing .7s ease-out;
+ 
 }
 
 #question-container h1:hover {
     color: #fff;
+    letter-spacing: 3px;
     text-shadow: 0 0 10px rgb(255, 215, 0),
         0 0 20px rgb(255, 215, 0),
         0 0 40px rgb(255, 215, 0),
         0 0 80px rgb(255, 215, 0),
         0 0 120px rgb(255, 215, 0);
-        transition: color 0.5s ease-out, font-size 2s ease-in;
+        transition: color 0.5s ease-out, font-size 2s ease, letter-spacing .1s ease-in;
+
 }
 
 #difficulty-selection {
