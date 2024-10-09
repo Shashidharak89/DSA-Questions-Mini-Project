@@ -7,5 +7,5 @@ window.addEventListener('load', function() {
         loadDiv.style.display = 'none';  // Hide the loading screen
         conDiv.style.display = 'block';  // Show the main content
         conDiv2.style.display = 'block';
-    }, 3); // 3000 milliseconds = 3 seconds
+    }, 3000); // 3000 milliseconds = 3 seconds
 });
