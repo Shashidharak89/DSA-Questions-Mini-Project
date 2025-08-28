@@ -57,11 +57,6 @@
 
 ---
 
-Use Username & Password
-    "admin": "password123",
-    "user1": "pass1",
-    "user2": "pass2",
-    "shashi":"abcd1234"
 
 <h2>🌐 Live Project</h2>
 
